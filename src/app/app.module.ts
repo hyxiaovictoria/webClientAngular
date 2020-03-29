@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ModuleListComponent } from './module-list/module-list.component';
 import {ModuleServiceClient} from './services/ModuleServiceClient';
 import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
+import {LessonServiceClient} from './services/LessonServiceClient';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
   ],
   providers: [
     CourseServiceClient,
-    ModuleServiceClient
+    ModuleServiceClient,
+    LessonServiceClient
   ],
   bootstrap: [AppComponent]
 })
