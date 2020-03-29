@@ -1,12 +1,13 @@
-<h1>Course List {{courses.length}}</h1>
+<h1>Course List Component</h1>
 
 <input [(ngModel)]="newCourseTitle"/>
 <button (click)="createCourse(newCourseTitle)">
   Create New Course
 </button>
 
-<ul>
-  <li *ngFor="let course of courses">
+<ul class="list-group">
+  <li *ngFor="let course of courses"
+  class="list-group-item">
     <button (click)="deleteCourse(course)">
       Delete
     </button>
