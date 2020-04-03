@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-true-false-question',
@@ -10,8 +11,14 @@ export class TrueFalseQuestionComponent implements OnInit {
   constructor() { }
 
   @Input()
-  question = {_id: '', title: '', question: '', answer: '', correct: ''}
-  answer = ''
+  question = {_id: '', title: '', question: '', answer: '', correct: ''};
+  grading = false;
+  answer = '';
+  faCheck = faCheck;
+  faTimes = faTimes;
+
+  grade = () => (this.grading = true)
+
   ngOnInit(): void {
   }
 

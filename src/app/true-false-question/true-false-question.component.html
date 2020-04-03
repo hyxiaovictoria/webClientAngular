@@ -1,24 +1,41 @@
-<h4>{{question.title}}</h4>
+<!--<h4>{{question.title}}</h4>-->
 <h5>{{question.question}}</h5>
 <label>
   <input type="radio"
          value="true"
          [(ngModel)]="answer"
          name="{{question._id}}"/>
-  True
+  TRUE
+<!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+
+<!--  <span [hidden]="grading && answer === question.correct" class="float-right">Incorrect</span>-->
+<!--  <span [hidden]="grading && answer !== question.correct" class="float-right">Correct</span>-->
 </label>
+
 <br/>
 <label>
   <input type="radio"
          value="false"
          [(ngModel)]="answer"
          name="{{question._id}}"/>
-  False
+  FALSE
+<!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+
+<!--  <span [hidden]="grading && (answer === question.correct)" class="float-right">Correct</span>-->
+<!--  <span [hidden]="grading && answer !== question.correct" class="float-right">Incorrect</span>-->
 </label>
 <br/>
 Your answer: {{answer}}
 <br/>
 Correct answer: {{question.correct}}
 <br/>
-<span [hidden]="answer !== question.correct">Yay!</span>
-<span [hidden]="answer === question.correct">Oops</span>
+
+<button class="btn-success"
+  (click) = "grade()">
+  Grade
+</button>
+<br/>
+grading = {{grading}}
+<br/>
+<span [hidden]="answer !== question.correct">Correct</span>
+<span [hidden]="answer === question.correct">Incorrect</span>
