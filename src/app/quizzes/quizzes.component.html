@@ -4,7 +4,13 @@
   <ul class="list-group">
     <li class="list-group-item"
         *ngFor="let quiz of quizzes">
-      {{quiz.title}}
+      <a routerLink="/courses/{{courseId}}/quizzes/{{quiz._id}}">
+        {{quiz.title}}
+      </a>
+      <a class="btn btn-primary float-right"
+         routerLink="/courses/{{courseId}}/quizzes/{{quiz._id}}">
+        Start
+      </a>
     </li>
   </ul>
 
