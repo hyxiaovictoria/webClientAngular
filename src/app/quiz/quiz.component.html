@@ -1,7 +1,7 @@
 <div>
-  <h2>Quiz</h2>
-  <ul>
-    <li *ngFor="let question of questions">
+  <h2>Quiz: (id: {{quizId}})</h2>
+  <ul class="list-group">
+    <li *ngFor="let question of questions" class="list-group-item">
       <div [ngSwitch]="question.type">
         <app-true-false-question
           [question]="question"
