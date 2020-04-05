@@ -10,7 +10,7 @@ export class MultipleChoiceQuestionComponent implements OnInit {
   constructor() { }
 
   @Input()
-  question = {_id: '', title: '', question: '', answer: '', correct: '', choices: ''}
+  question = {_id: '', title: '', quizId: '', question: '', correct: '', type: '', choices: ''}
 
   @Input()
   answer = 'No answer yet'

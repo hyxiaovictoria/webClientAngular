@@ -1,15 +1,15 @@
 <h4>{{question.title}}</h4>
 <h5>{{question.question}}</h5>
 
-<!--<div *ngFor="let option of question.options">-->
-<!--  <label>-->
-<!--    <input [(ngModel)]="answer"-->
-<!--           type="radio"-->
-<!--           value="{{option}}"-->
-<!--           name="{{question._id}}"/> {{option}}-->
-<!--  </label>-->
-<!--</div>-->
-<!--Your answer: {{answer}}-->
+<div *ngFor="let choice of question.choices">
+  <label>
+    <input [(ngModel)]="answer"
+           type="radio"
+           value="{{choice}}"
+           name="{{question._id}}"/> {{choice}}
+  </label>
+</div>
+Your answer: {{answer}}
 
 <br/>
 <button (click)="submitAnswer()"
