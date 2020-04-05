@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-true-false-question',
@@ -14,8 +12,11 @@ export class TrueFalseQuestionComponent implements OnInit {
 
   @Input()
   question = {_id: '', title: '', question: '', answer: '', correct: ''};
+
+  @Input()
+  answer = 'No answer yet';
+
   grading = false;
-  answer = '';
   faCheck = faCheck;
   faTimes = faTimes;
 

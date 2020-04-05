@@ -2,17 +2,35 @@
 <h5>{{question.question}}</h5>
 
 <div *ngFor="let choice of question.choices">
+  <span [ngClass]="{
+  'bg-success':grading&& question.correct===choice,
+  'bg-danger':grading&& (question.correct!==choice && answer===choice)}">
   <label>
     <input [(ngModel)]="answer"
            type="radio"
            value="{{choice}}"
-           name="{{question._id}}"/> {{choice}}
+           name="{{question._id}}"/>
+    {{choice}}
+    <fa-icon [icon]="faCheck" [hidden]="!grading || question.correct !== choice"></fa-icon>
+    <fa-icon [icon]="faTimes" [hidden]="!grading || (question.correct === choice || answer !== choice)"></fa-icon>
   </label>
+  </span>
 </div>
-Your answer: {{answer}}
 
+Your answer: {{answer}}
 <br/>
-<button (click)="submitAnswer()"
-  class = "btn-success">
+Correct answer: {{question.correct}}
+<br/>
+
+<button class="btn-success"
+  (click)="grade()">
   Grade
 </button>
+
+<!--
+Display faTimes
+grading && (question.correct !== choice && answer === choice)
+
+Display check
+grading && question.correct === choice
+-->
