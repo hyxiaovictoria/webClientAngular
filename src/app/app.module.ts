@@ -18,6 +18,7 @@ import { TrueFalseQuestionComponent } from './true-false-question/true-false-que
 import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
 import {QuizServiceClient} from './services/QuizServiceClient';
 import {QuestionServiceClient} from './services/QuestionServiceClient';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {QuestionServiceClient} from './services/QuestionServiceClient';
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [
     CourseServiceClient,

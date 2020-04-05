@@ -1,29 +1,35 @@
 <!--<h4>{{question.title}}</h4>-->
 <h5>{{question.question}}</h5>
-<label>
-  <input type="radio"
-         value="true"
-         [(ngModel)]="answer"
-         name="{{question._id}}"/>
-  TRUE
-<!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
 
-<!--  <span [hidden]="grading && answer === question.correct" class="float-right">Incorrect</span>-->
-<!--  <span [hidden]="grading && answer !== question.correct" class="float-right">Correct</span>-->
-</label>
+<span [ngClass]="{
+  'bg-success':grading&& question.correct==='true',
+  'bg-danger':grading&& question.correct==='false' && answer==='true'}">
+  <label>
+    <input type="radio"
+           value="true"
+           [(ngModel)]="answer"
+           name="{{question._id}}"/>
+    TRUE
+    <fa-icon [icon]="faCheck" [hidden]="!grading || question.correct === 'false'"></fa-icon>
+    <fa-icon [icon]="faTimes" [hidden]="!grading || question.correct === 'true' || answer === 'false'"></fa-icon>
+  </label>
+</span>
 
 <br/>
+<span [ngClass]="{
+  'bg-success':grading&& question.correct==='false',
+  'bg-danger':grading&& question.correct==='true'}">
 <label>
   <input type="radio"
          value="false"
          [(ngModel)]="answer"
          name="{{question._id}}"/>
   FALSE
-<!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-
-<!--  <span [hidden]="grading && (answer === question.correct)" class="float-right">Correct</span>-->
-<!--  <span [hidden]="grading && answer !== question.correct" class="float-right">Incorrect</span>-->
+    <fa-icon [icon]="faCheck" [hidden]="!grading || question.correct === 'true'"></fa-icon>
+    <fa-icon [icon]="faTimes" [hidden]="!grading || question.correct === 'false' || answer === 'true'"></fa-icon>
 </label>
+</span>
+
 <br/>
 Your answer: {{answer}}
 <br/>
@@ -34,8 +40,3 @@ Correct answer: {{question.correct}}
   (click) = "grade()">
   Grade
 </button>
-<br/>
-grading = {{grading}}
-<br/>
-<span [hidden]="answer !== question.correct">Correct</span>
-<span [hidden]="answer === question.correct">Incorrect</span>
