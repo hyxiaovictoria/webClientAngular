@@ -11,12 +11,15 @@ export class MultipleChoiceQuestionComponent implements OnInit {
   constructor() { }
 
   @Input()
-  question = {_id: '', title: '', quizId: '', question: '', correct: '', type: '', choices: ''}
+  question = {_id: '', title: '', question: '', correct: '', answer: '', type: '', choices: ''}
 
   @Input()
   answer = 'No answer yet'
   @Output()
   answerChange = new EventEmitter<string>();
+
+  submitAnswer = () =>
+    this.answerChange.emit(this.answer)
 
   grading = false;
   faCheck = faCheck;
