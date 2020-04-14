@@ -1,4 +1,4 @@
-<h1>Course List Component</h1>
+<h1>Course Table Component</h1>
 
 <input [(ngModel)]="newCourseTitle"/>
 <button (click)="createCourse(newCourseTitle)">
@@ -11,7 +11,9 @@
     <button (click)="deleteCourse(course)">
       Delete
     </button>
-    <a href="/details/{{course._id}}">
+
+
+    <a href="/table/courses/{{course._id}}/modules">
       {{course.title}}
     </a>
     <a class="float-right"
